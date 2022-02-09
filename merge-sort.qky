@@ -24,9 +24,10 @@
       Changed to use merge sort for nests bigger than 16 items.      )
 
   [ stack ]                     is merge.test  (         --> s       )
+  [ stack ]                     is temp.test   (         --> s       )
 
   [ ]'[ merge.test put
-    [] temp put
+    [] temp.test put
     [ dup  [] != while
       over [] != while
       over 0 peek
@@ -34,13 +35,14 @@
       merge.test share do
       not if dip
         [ 1 split
-          temp take
+          temp.test take
           rot join
-          temp put ]
+          temp.test put ]
         again ]
       join
-      temp take swap join
+      temp.test take swap join
       merge.test release  ]     is mergewith   (     [ [ --> [       )
+
 
   [ stack ]                     is sort.test   (         --> s       )
 
